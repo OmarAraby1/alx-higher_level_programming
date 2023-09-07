@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 
 if __name__ == "__main__":
-    """Handle basic arithmetic operations."""
-    from calculator_1 import add, sub, mul, div
+    """Perform Simple Math Operation."""
+    import calculator_1 as calc
     import sys
 
-    if len(sys.argv) - 1 != 3:
+    argc = len(sys.argv) - 1
+    ops = {"+": calc.add, "-": calc.sub, "*": calc.mul, "/": calc.div}
+    if argc != 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
-
-    ops = {"+": add, "-": sub, "*": mul, "/": div}
-    if sys.argv[2] not in list(ops.keys()):
+    elif sys.argv[2] not in list(ops.keys()):
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
 
